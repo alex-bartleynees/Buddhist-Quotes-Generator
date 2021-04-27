@@ -3,17 +3,17 @@ import { connect } from 'react-redux'
 
 import { fetchQuotes } from '../actions/index'
 
-const Quotes = ({dispatch, quotes}) => {
+const Quotes = ({dispatch, quotes, changeColor}) => {
 
   useEffect(() => {
     dispatch(fetchQuotes())
   }, [])
 
   const getNewQuote = () => {
-    console.log('click')
-    useEffect(() => {
+
       dispatch(fetchQuotes())
-    }, [])
+      changeColor()
+   
   
   }
 
@@ -25,7 +25,7 @@ const Quotes = ({dispatch, quotes}) => {
         <div className='author'>
           <p><span>Buddha</span></p>
         </div>
-        <div className="button" onClick={()=> getNewQuote}>
+        <div className="button" onClick={getNewQuote}>
           <p>New Quote</p>
         </div>
 
